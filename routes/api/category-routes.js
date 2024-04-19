@@ -6,20 +6,28 @@ const { Category, Product } = require('../../models');
 router.get('/', (req, res) => {
   // find all categories
   // be sure to include its associated Products
-  const categories = Category.findAll({
-    include: [{ model: Product }]
-  });
-  res.json(categories);
+  Category.findAll({
+    include: [{ model: Product,
+      attributes: ['product_name']
+    }]
+  }).then((categories) =>
+  res.json(categories)).catch((err) => {
+    console.log(err);
+    res.status(500).json(err);
+  })
 
 });
 
 router.get('/:id', (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
-  const category = Category.findByPk(req.params.id, {
+  Category.findByPk(req.params.id, {
     include: [{ model: Product }]
-  });
-  res.json(category);
+  }).then((category) =>
+  res.json(category)).catch((err) => {
+    console.log(err);
+    res.status(500).json(err);
+  })
 
 });
 
