@@ -25,7 +25,7 @@ To install the necessary components:
 
 1. **Clone the repository:**
 
-[Link to Repository]()
+[Link to Repository](https://github.com/Nardgie/e-commerce)
 
 2. **Install Dependencies**
 
