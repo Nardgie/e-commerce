@@ -1,5 +1,6 @@
 const path = require("path");
 const Sequelize = require("sequelize");
+// Needed generate an absolute path to the .env file to get the app running properly
 require("dotenv").config({ path: path.resolve(__dirname, "../.env")});
 
 const sequelize = process.env.JAWSDB_URL
